@@ -20,7 +20,15 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(errorHandler);
 
-app.use(cors());  
+const corsOptions = {
+	origin: ["https://24meds-client.vercel.app", 
+		"https://24meds-client-git-master-juberts-projects.vercel.app", 
+		"https://24meds-client-o28d52dqm-juberts-projects.vercel.app"],
+	credentials: true,
+	optionsSuccessStatus: 200
+}
+
+app.use(cors(corsOptions));  
 
 
 // [SECTION] MongoDB Connection
